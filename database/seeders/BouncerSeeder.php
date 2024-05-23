@@ -26,18 +26,18 @@ class BouncerSeeder extends Seeder
 
         // Define abilities
         Bouncer::ability()->firstOrCreate([
-            'name' => 'create-products',
+            'name' => 'access-produit',
             'title' => 'Create Products',
         ]);
 
         Bouncer::ability()->firstOrCreate([
-            'name' => 'test-products',
+            'name' => 'access-test',
             'title' => 'Test Products',
         ]);
 
         // Assign abilities to roles
-        Bouncer::allow('client')->to('create-products');
-        Bouncer::allow('testeur')->to('test-products');
+        Bouncer::allow('client')->to('access-produit');
+        Bouncer::allow('testeur')->to('access-test');
     }
 }
 

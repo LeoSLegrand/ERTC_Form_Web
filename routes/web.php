@@ -20,7 +20,7 @@ use App\Http\Controllers\TestController;
 //Page avec le login
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 //Pages authentification
 Route::get('/dashboard', function () {
@@ -33,31 +33,27 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     //Page Principal
-    Route::get('/', [ProduitController::class, 'show'])->name('ertc.main');
+    Route::get('/main', [ProduitController::class, 'show'])->name('ertc.main');
 
     //Pages gestion produits
-    Route::middleware(['role:client'])->group(function () {
         Route::get('/produit/index', [ProduitController::class, 'index'])->name('produits.index');
         Route::get('/produit/create', [ProduitController::class, 'create'])->name('produits.create');
         Route::post('/produit', [ProduitController::class, 'store'])->name('produits.store');
         Route::get('/produit/{produits}/edit', [ProduitController::class, 'edit'])->name('produits.edit');
         Route::put('/produit/{produits}/update', [ProduitController::class, 'update'])->name('produits.update');
         Route::delete('/produit/{produits}/destroy', [ProduitController::class, 'destroy'])->name('produits.destroy');
-    });
 
     //Pages gestion tests
-    Route::middleware(['role:testeur'])->group(function () {
         Route::get('/produit/index', [ProduitController::class, 'index'])->name('produits.index');
         Route::get('/produit/create', [ProduitController::class, 'create'])->name('produits.create');
         Route::post('/produit', [ProduitController::class, 'store'])->name('produits.store');
         Route::get('/produit/{produits}/edit', [ProduitController::class, 'edit'])->name('produits.edit');
         Route::put('/produit/{produits}/update', [ProduitController::class, 'update'])->name('produits.update');
         Route::delete('/produit/{produits}/destroy', [ProduitController::class, 'destroy'])->name('produits.destroy');
-    });
 });
 
 require __DIR__.'/auth.php';
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

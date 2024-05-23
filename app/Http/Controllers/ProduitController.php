@@ -17,7 +17,7 @@ class ProduitController extends Controller
         $produits = Produit::all();
         if (Gate::allows('access-produit')) {
             $produits = Produit::all();
-            return view('produit.index', ['produits' => $produits]);
+            return view('produits.index', ['produits' => $produits]);
 
         } else {
             abort(403, 'Accès refusé car vôtre compte n a pas le rôle Client');
@@ -46,7 +46,7 @@ class ProduitController extends Controller
 
         $data = $request->all();
 
-        // Attribuer l'ID de l'entreprsie aléatoire
+        // Attribuer l'ID de l'entreprise aléatoire
         $data['entreprise_id'] = $entrepriseAleatoire->id;
 
         $newVol = Produit::create($data);
@@ -60,13 +60,12 @@ class ProduitController extends Controller
      */
     public function show(Produit $produits)
     {
-
         $data = Produit::
         orderBy('type_produit', 'desc')
         ->orderBy('nom_produit', 'desc')
         ->get();
 
-        return view('list',['produits'=>$data]);
+        return view('main',['produits'=>$data]);
 
     }
 
