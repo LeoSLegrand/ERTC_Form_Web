@@ -18,6 +18,7 @@ class Test extends Model
         'ebulition',
         'acidite',
         'solubilite',
+        'estValide',
         'produit_id'
     ];
 

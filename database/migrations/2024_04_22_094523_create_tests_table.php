@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('ebulition');
             $table->integer('acidite');
             $table->string('solubilite');
+            $table->string('estValide');
             $table->timestamps();
         });
     }
