@@ -44,12 +44,12 @@ Route::middleware('auth')->group(function () {
         Route::delete('/produit/{produits}/destroy', [ProduitController::class, 'destroy'])->name('produits.destroy');
 
     //Pages gestion tests
-        Route::get('/produit/index', [ProduitController::class, 'index'])->name('produits.index');
-        Route::get('/produit/create', [ProduitController::class, 'create'])->name('produits.create');
-        Route::post('/produit', [ProduitController::class, 'store'])->name('produits.store');
-        Route::get('/produit/{produits}/edit', [ProduitController::class, 'edit'])->name('produits.edit');
-        Route::put('/produit/{produits}/update', [ProduitController::class, 'update'])->name('produits.update');
-        Route::delete('/produit/{produits}/destroy', [ProduitController::class, 'destroy'])->name('produits.destroy');
+        Route::get('/test/index', [TestController::class, 'index'])->name('tests.index');
+        Route::get('/test/create', [TestController::class, 'create'])->name('tests.create');
+        Route::post('/test', [TestController::class, 'store'])->name('tests.store');
+        Route::get('/test/{tests}/edit', [TestController::class, 'edit'])->name('tests.edit');
+        Route::put('/test/{tests}/update', [TestController::class, 'update'])->name('tests.update');
+        Route::delete('/test/{tests}/destroy', [TestController::class, 'destroy'])->name('tests.destroy');
 });
 
 require __DIR__.'/auth.php';
