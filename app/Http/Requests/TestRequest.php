@@ -17,13 +17,13 @@ class TestRequest extends FormRequest
     public function rules(): array
     {
         $rules[[
-            'date_test' =>'required',
-            'aspect' =>'required',
-            'couleur' =>'required|integer|without_spaces',
-            'ebulition' =>'required|integer|without_spaces',
-            'acidite' =>'required',
-            'solubilite' =>'required',
-            'estValide' =>'required|integer|without_spaces'
+            'date_test' =>'required|string',
+            'aspect' =>'required|string',
+            'couleur' =>'required|string',
+            'ebulition' =>'required|string',
+            'acidite' =>'required|numeric',
+            'solubilite' =>'required|string',
+            'estValide' =>'required|string'
         ]];
         
         return $rules;

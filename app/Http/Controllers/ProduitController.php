@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Produit;
+use App\Models\Entreprise;
 use Silber\Bouncer\Bouncer;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Requests\ProduitRequest;
@@ -40,7 +41,6 @@ class ProduitController extends Controller
      */
     public function store(Request $request)
     {
-   
         // Obtenir une entreprise aléatoire
         $entrepriseAleatoire = Entreprise::inRandomOrder()->first();
 
@@ -49,10 +49,9 @@ class ProduitController extends Controller
         // Attribuer l'ID de l'entreprise aléatoire
         $data['entreprise_id'] = $entrepriseAleatoire->id;
 
-        $newVol = Produit::create($data);
+        $newProduit = Produit::create($data);
 
         return redirect(route('produits.index'));
-    
     }
 
     /**

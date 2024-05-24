@@ -11,7 +11,7 @@ class ProduitRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,10 +22,9 @@ class ProduitRequest extends FormRequest
     public function rules(): array
     {
         $rules[[
-            'nom_produit' =>'required',
-            'type_produit' =>'required',
-            'description' =>'required|integer|without_spaces',
-            'nombre_piste' =>'required|integer|without_spaces'
+            'nom_produit' =>'required|string',
+            'type_produit' =>'required|string',
+            'description' =>'required|string',
         ]];
         
         return $rules;

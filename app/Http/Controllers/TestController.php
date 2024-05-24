@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Test;
+use App\Models\Produit;
 use Silber\Bouncer\Bouncer;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Requests\TestRequest;
 use App\Repositories\TestRepository;
+
 
 class TestController extends Controller
 {
@@ -28,7 +30,8 @@ class TestController extends Controller
      */
     public function create()
     {
-        return view('tests.create');
+        $tests = Test::all();
+            return view('tests.create');
     }
 
     /**
@@ -44,7 +47,7 @@ class TestController extends Controller
         // Attribuer l'ID du produit aléatoire
         $data['produit_id'] = $produitAleatoire->id;
 
-        $tests = $this->repository->store($request->all());
+        $newTest = Test::create($data);
 
         return redirect(route('tests.index'));
     }
@@ -73,7 +76,7 @@ class TestController extends Controller
 
         $data = $request->all();
 
-        $this->repository->update($tests, $request->all());
+        $tests->update($data);
 
         return redirect(route('tests.index'))->with('success', 'Test édité avec succès');
     }
