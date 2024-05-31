@@ -24,6 +24,11 @@ class BouncerSeeder extends Seeder
             'title' => 'Testeur',
         ]);
 
+        Bouncer::role()->firstOrCreate([
+            'name' => 'admin',
+            'title' => 'Administrateur',
+        ]);
+
         // Define abilities
         Bouncer::ability()->firstOrCreate([
             'name' => 'access-produit',
@@ -35,9 +40,15 @@ class BouncerSeeder extends Seeder
             'title' => 'Test Products',
         ]);
 
+        Bouncer::ability()->firstOrCreate([
+            'name' => 'access-admin',
+            'title' => 'Droit Admin',
+        ]);
+
         // Assign abilities to roles
         Bouncer::allow('client')->to('access-produit');
         Bouncer::allow('testeur')->to('access-test');
+        Bouncer::allow('admin')->to('access-admin');
     }
 }
 
