@@ -15,6 +15,7 @@ Par la suite on peut lancer les Seeder pour remplire la base de donée avec les 
 > artisan db:seed --class=EntrepriseSeeder<br>
 > artisan db:seed --class=TestSeeder<br><br>
 > artisan db:seed --class=BouncerSeeder<br><br>
+> artisan db:seed --class=UserSeeder<br><br>
 
 Aller dans le dossier avec le fichier 'package.json' puis entrer la commande : <br><br>
 
