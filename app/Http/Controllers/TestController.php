@@ -30,27 +30,26 @@ class TestController extends Controller
      */
     public function create()
     {
-        $tests = Test::all();
-            return view('tests.create');
+        $productsWithoutTest = Produit::doesntHave('test')->get();
+        return view('tests.create', ['products' => $productsWithoutTest]);
     }
+    
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        // Obtenir un produit aléatoire
-        $produitAleatoire = Produit::inRandomOrder()->first();
-
         $data = $request->all();
-
-        // Attribuer l'ID du produit aléatoire
-        $data['produit_id'] = $produitAleatoire->id;
-
+        
+        // Attribuer l'ID du produit choisi
+        $data['produit_id'] = $request->input('produit_id');
+    
         $newTest = Test::create($data);
-
-        return redirect(route('tests.index'));
+    
+        return redirect(route('tests.index'))->with('success', 'Test créé avec succès');
     }
+    
 
     /**
      * Display the specified resource.

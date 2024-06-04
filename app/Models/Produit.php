@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Entreprise;
+use App\Models\Test;
 
 class Produit extends Model
 {
@@ -20,5 +21,10 @@ class Produit extends Model
     public function produit(){
     
         return $this->belongsTo(Entreprise::class, 'entreprise_id');
+    }
+
+    public function test()
+    {
+        return $this->hasOne(Test::class);
     }
 }

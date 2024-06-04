@@ -21,6 +21,17 @@
             @method('post')
 
             <div>
+                <label>Produit à tester &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <select name="produit_id" required>
+                    @foreach($products as $product)
+                        <option value="{{ $product->id }}">{{ $product->nom_produit }}</option>
+                    @endforeach
+                </select>
+                <br>
+            </div>
+            <br>
+
+            <div>
                 <label>Date de Rédaction du Test &nbsp;&nbsp;&nbsp;&nbsp;</label>
                 <input type="text" name="date_test" placeholder="Date au format YYYY-MM-DD HH:MI:SS" />
                 <br>

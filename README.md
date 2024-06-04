@@ -11,7 +11,6 @@ Dans le document '.env' on doit modifier ces lignes de code :<br><br>
 <br><br>
 Par la suite on peut lancer les Seeder pour remplire la base de donée avec les commandes suivantes :<br><br>
 
-> artisan db:seed --class=ProduitSeeder<br>
 > artisan db:seed --class=EntrepriseSeeder<br>
 > artisan db:seed --class=TestSeeder<br><br>
 > artisan db:seed --class=BouncerSeeder<br><br>
