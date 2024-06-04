@@ -71,12 +71,12 @@
             <div>
                 <label>Entreprise &nbsp;&nbsp;&nbsp;&nbsp;</label>
                 <select name="entreprise_id" required>
-                    @foreach($entreprises as $entreprise)
+                    @foreach($entreprises->sortBy('nom_entreprise') as $entreprise)
                         <option value="{{ $entreprise->id }}">{{ $entreprise->nom_entreprise }}</option>
                     @endforeach
                 </select>
             </div>
-            <br>
+            <br>            
 
             <div>
                 <input type="submit" value="Sauvegarde le nouveau produit" class="btn btn-primary"/>

@@ -41,7 +41,7 @@
             <div>
                 <label>Produit à tester &nbsp;&nbsp;&nbsp;&nbsp;</label>
                 <select name="produit_id" required>
-                    @foreach($products as $product)
+                    @foreach($products->sortBy('nom_produit') as $product)
                         <option value="{{ $product->id }}">{{ $product->nom_produit }}</option>
                     @endforeach
                 </select>

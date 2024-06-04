@@ -29,9 +29,9 @@
 </head>
 
 <body>
-        <a href="{{ route('dashboard') }}" class="nav-link">Dashboard</a>
+        {{-- <a href="{{ route('dashboard') }}" class="nav-link">Dashboard</a>    --}}
 
-        <a href="{{ route('welcome') }}" class="nav-link">Landing Page</a>
+        <a href="{{ route('welcome') }}" class="nav-link">Page d'Accueil ERTC</a>
 
         <form method="POST" action="{{ route('logout') }}">
             @csrf
@@ -39,7 +39,7 @@
             <x-dropdown-link :href="route('logout')"
                     onclick="event.preventDefault();
                                 this.closest('form').submit();" class="logout-link">
-                {{ __('Log Out') }}
+                {{ __('Déconnexion') }}
             </x-dropdown-link>
         </form>
 
