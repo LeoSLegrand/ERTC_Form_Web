@@ -30,29 +30,26 @@ class ProduitController extends Controller
      */
     public function create()
     {
-
-        $produits = Produit::all();
-            return view('produits.create');
-
+        $entreprises = Entreprise::all();
+        return view('produits.create', ['entreprises' => $entreprises]);
     }
+    
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        // Obtenir une entreprise aléatoire
-        $entrepriseAleatoire = Entreprise::inRandomOrder()->first();
-
         $data = $request->all();
-
-        // Attribuer l'ID de l'entreprise aléatoire
-        $data['entreprise_id'] = $entrepriseAleatoire->id;
-
+        
+        // Attribuer l'ID de l'entreprise sélectionnée
+        $data['entreprise_id'] = $request->input('entreprise_id');
+    
         $newProduit = Produit::create($data);
-
-        return redirect(route('produits.index'));
+    
+        return redirect(route('produits.index'))->with('success', 'Produit créé avec succès');
     }
+    
 
     /**
      * Display the specified resource.

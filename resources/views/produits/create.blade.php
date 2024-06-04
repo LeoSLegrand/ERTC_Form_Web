@@ -40,6 +40,17 @@
                 <input type="text" name="description" placeholder="Description Produit" />
             </div>
             <br>
+
+            <div>
+                <label>Entreprise &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <select name="entreprise_id" required>
+                    @foreach($entreprises as $entreprise)
+                        <option value="{{ $entreprise->id }}">{{ $entreprise->nom_entreprise }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <br>
+
             <div>
                 <input type="submit" value="Sauvegarde le nouveau produit"/>
             </div>
