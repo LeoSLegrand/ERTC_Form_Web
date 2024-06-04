@@ -18,12 +18,12 @@ class TestRequest extends FormRequest
     {
         $rules[[
             'date_test' =>'required|string',
-            'aspect' =>'required|string',
-            'couleur' =>'required|string',
-            'ebulition' =>'required|string',
-            'acidite' =>'required|numeric',
-            'solubilite' =>'required|string',
-            'estValide' =>'required|string'
+            'aspect' => 'required|string|in:liquide,gel,Poudre,mousse,baume,spray,huile',
+            'couleur' => 'required|string|max:255',
+            'ebulition' => 'required|string|in:faible,moyenne,haute',
+            'acidite' => 'required|numeric|min:0|max:14',
+            'solubilite' => 'required|string|in:soluble,insoluble',
+            'estValide' =>'required|in:Oui,Non'
         ]];
         
         return $rules;

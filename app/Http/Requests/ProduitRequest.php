@@ -22,9 +22,10 @@ class ProduitRequest extends FormRequest
     public function rules(): array
     {
         $rules[[
-            'nom_produit' =>'required|string',
-            'type_produit' =>'required|string',
-            'description' =>'required|string',
+            'nom_produit' => 'required|string|max:255',
+            'type_produit' => 'required|string|in:crème hydratante,shampooing,savon,lotion tonique,masque facial,démaquillant,baume à lèvres,exfoliant corporel,sérum anti-âge,Huile pour le visage',
+            'description' => 'nullable|string|max:1000',
+            // 'entreprise_id' => 'required|exists:entreprises,id',
         ]];
         
         return $rules;

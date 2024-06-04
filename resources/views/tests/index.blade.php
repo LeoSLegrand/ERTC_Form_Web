@@ -24,7 +24,7 @@
             <br>
             <table class="table table-striped" border="1" style="margin-left: auto; margin-right: auto">
                 <tr>
-                    <th>Id &nbsp;&nbsp;</th>
+                    {{-- <th>Id &nbsp;&nbsp;</th> --}}
                     <th>{{ __('Produit Testé') }} &nbsp;&nbsp;</th>
                     <th>{{ __('Date Test') }} &nbsp;&nbsp;</th>
                     <th>{{ __('Aspect') }} &nbsp;&nbsp;</th>
@@ -39,7 +39,7 @@
                 </tr>
                 @foreach($tests as $tests)
                     <tr>
-                        <td style="text-align: center;">{{$tests->id}}</td>
+                        {{-- <td style="text-align: center;">{{$tests->id}}</td> --}}
                         <td style="text-align: center;">{{$tests->produit->nom_produit}}</td>
                         <td style="text-align: center;">{{$tests->date_test}}</td>
                         <td style="text-align: center;">{{$tests->aspect}}</td>

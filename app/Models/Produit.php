@@ -27,4 +27,9 @@ class Produit extends Model
     {
         return $this->hasOne(Test::class);
     }
+
+    public function validite()
+    {
+        return $this->test(); // return the relationship rather than a field.
+    }
 }

@@ -59,6 +59,7 @@
                 <th style="text-align: center;"><strong>{{ __('Nom du Produit') }}</strong></th>
                 <th style="text-align: center;"><strong>{{ __('Type Produit') }}</strong></th>
                 <th style="text-align: center;"><strong>{{ __('Entreprise') }}</strong></th>
+                <th style="text-align: center;"><strong>{{ __('Validité Produit') }}</strong></th>
             </tr>
             
             @foreach($produits as $produits )
@@ -66,7 +67,14 @@
                 <th style="text-align: center;">{{$produits['nom_produit'] }}</th>
                 <th style="text-align: center;">{{$produits['type_produit'] }}</th>
                 <th style="text-align: center;">{{$produits->produit->nom_entreprise }}</th> 
-                {{-- $produits->produit->nom_entreprise fait référence à la fonction "produit" dans Produit.php --}}                
+                {{-- $produits->produit->nom_entreprise fait référence à la fonction "produit" dans Produit.php --}}       
+                <th style="text-align: center;">
+                    @if($produits->test)
+                        {{$produits->test->estValide}}
+                    @else
+                        {{ __('Attente d\'évaluation') }}
+                    @endif
+                </th>
             </tr>
             @endforeach
         </table>

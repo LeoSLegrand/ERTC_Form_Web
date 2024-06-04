@@ -23,22 +23,23 @@
             <br>
             <table class="table table-striped" border="1" style="margin-left: auto; margin-right: auto">
                 <tr>
-                    <th>Id &nbsp;&nbsp;</th>
+                    {{-- <th>Id &nbsp;&nbsp;</th> --}}
                     <th><strong>{{ __('Nom Produit') }} &nbsp;&nbsp;</strong></th>
                     <th><strong>{{ __('Type Produit') }} &nbsp;&nbsp;</strong></th>
                     <th><strong>{{ __('Description') }} &nbsp;&nbsp;</strong></th>
                     <th><strong>{{ __('Entreprise') }} &nbsp;&nbsp;</strong></th>
-                    <th><strong>{{ __('Editer') }} &nbsp;&nbsp;</strong></th>
-                    <th><strong>{{ __('Supprimer') }} &nbsp;&nbsp;</strong></th>
+                    {{-- <th><strong>{{ __('Editer') }} &nbsp;&nbsp;</strong></th>
+                    <th><strong>{{ __('Supprimer') }} &nbsp;&nbsp;</strong></th> --}}
                 </tr>
                 @foreach($produits as $produits)
                     <tr>
-                        <td style="text-align: center;">{{$produits->id}}</td>
+                        {{-- <td style="text-align: center;">{{$produits->id}}</td> --}}
                         <th style="text-align: center;">{{$produits['nom_produit'] }}</th>
                         <th style="text-align: center;">{{$produits['type_produit'] }}</th>
                         <th style="text-align: center;">{{$produits['description'] }}</th>
                         <th style="text-align: center;">{{$produits->produit->nom_entreprise }}</th> 
-                        <td style="text-align: center;">
+                        
+                        {{-- <td style="text-align: center;">
                             <a href="{{route('produits.edit', ['produits' => $produits])}}" class="btn btn-primary">{{ __('Editer') }}</a>
                         </td>
                         <td style="text-align: center;">
@@ -47,7 +48,7 @@
                                 @method('delete')
                                 <input type="submit" value="Delete"/>
                             </form>
-                        </td>
+                        </td> --}}
                     </tr>
                 @endforeach
             </table>

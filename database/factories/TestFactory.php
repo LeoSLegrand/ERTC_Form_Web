@@ -27,7 +27,7 @@ class TestFactory extends Factory
             'ebulition' => fake()->randomElement(['faible', 'moyenne', 'haute']),
             'acidite' => fake()->numberBetween(0, 14),
             'solubilite' => fake()->randomElement(['soluble', 'insoluble']),
-            'estValide' => fake()->randomElement(['non approuvé', 'approuvé']),
+            'estValide' => fake()->randomElement(['Oui', 'Non']),
             'produit_id' => Produit::factory()->create(),
         ];
     }

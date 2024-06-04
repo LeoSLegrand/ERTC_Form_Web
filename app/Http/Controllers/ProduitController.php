@@ -17,7 +17,7 @@ class ProduitController extends Controller
     {
         $produits = Produit::all();
         if (Gate::allows('access-produit')) {
-            $produits = Produit::all();
+            $produits = Produit::with(['produit', 'test'])->get();
             return view('produits.index', ['produits' => $produits]);
 
         } else {
